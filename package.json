@@ -1,0 +1,26 @@
+{
+  "name": "wipbots",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panupong25509/WIPBOT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/panupong25509/WIPBOT/issues"
+  },
+  "homepage": "https://github.com/panupong25509/WIPBOT#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "firebase-admin": "^7.2.0",
+    "request": "^2.88.0"
+  }
+}
