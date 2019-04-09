@@ -22,7 +22,7 @@ const server = require("express");
 const PORT = process.env.PORT || 9999;
 const request = require("request");
 const bodyParser = require("body-parser");
-const lineMessaging = require('./src/classes/line-messaging');
+const lineMessaging = require("./src/classes/line-messaging");
 
 server()
   .use(bodyParser.json())
@@ -32,16 +32,18 @@ server()
   )
   .post("/webhook", function(req, res) {
     let replyToken = req.body.events[0].replyToken;
-    let msg = req.body.events[0].message.text;
+    let message = req.body.events[0].message.text;
 
     console.log(`Message token : ${replyToken}`);
-    console.log(`Message from chat : ${msg}`);
+    console.log(`Message from chat : ${message}`);
 
-    lineMessaging.replyMessage(replyToken, message).then(function (rs) {
+    lineMessaging.replyMessage(replyToken, message).then(function(rs) {
+      console.log(`Reply message result : ${rs}`);
 
-    res.json({
-      status: 200,
-      message: `Webhook is working!`
+      res.json({
+        status: 200,
+        message: `Sent message!`
+      });
     });
   })
   .listen(PORT, () => console.log(`Listening on ${PORT}`));
