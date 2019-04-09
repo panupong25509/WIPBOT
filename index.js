@@ -25,10 +25,11 @@ server()
        * Send a query to the dialogflow agent, and return the query result.
        * @param {string} projectId The project to be used
        */
-      async function runSample(projectId = "checkchick") {
+      runSample("checkchick");
+      async function runSample(projectId) {
         // A unique identifier for the given session
         const sessionId = uuid.v4();
-
+        console.log(projectId);
         // Create a new session
         const sessionClient = new dialogflow.SessionsClient();
         const sessionPath = sessionClient.sessionPath(projectId, sessionId);
