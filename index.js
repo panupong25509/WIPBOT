@@ -12,6 +12,14 @@ server()
   )
   .post("/webhook", function(req, res) {
     runSample();
+    res.json({
+      status: 200,
+      message: "Hi"
+    });
+  })
+
+  .post("/dialog", function(req, res) {
+    console.log(req);
     const dialogflow = require("dialogflow");
     const uuid = require("uuid");
 
@@ -52,9 +60,6 @@ server()
         console.log(`  No intent matched.`);
       }
     }
-  })
-  .post("/dialog", function(req, res) {
-    console.log(req);
     res.json({
       status: 200,
       message: "thx"
