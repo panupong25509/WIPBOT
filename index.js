@@ -22,6 +22,7 @@ const server = require("express");
 const PORT = process.env.PORT || 9999;
 const request = require("request");
 const bodyParser = require("body-parser");
+const lineMessaging = require('./src/classes/line-messaging');
 
 server()
   .use(bodyParser.json())
@@ -35,6 +36,8 @@ server()
 
     console.log(`Message token : ${replyToken}`);
     console.log(`Message from chat : ${msg}`);
+
+    lineMessaging.replyMessage(replyToken, message).then(function (rs) {
 
     res.json({
       status: 200,
