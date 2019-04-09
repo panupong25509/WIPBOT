@@ -13,7 +13,7 @@ server()
   .post("/webhook", function(req, res) {
     let replyToken = req.body.events[0].replyToken;
     let message = req.body.events[0].message.text;
-    console.log(req.events[0]);
+    console.log(req.body.events[0]);
     console.log(`Message token : ${replyToken}`);
     console.log(`Message from chat : ${message}`);
 
